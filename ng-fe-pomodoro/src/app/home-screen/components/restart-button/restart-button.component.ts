@@ -16,6 +16,6 @@ export class RestartButtonComponent implements OnInit {
     ngOnInit(): void {}
 
     onClick(): void {
-        this.timerStateService.reseTimer();
+        this.timerStateService.resetTimer();
     }
 }
