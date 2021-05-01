@@ -1,0 +1,7 @@
+*.png
+*.svg
+*.jpg
+*.ico
+dist
+node_modules
+package-lock.json
