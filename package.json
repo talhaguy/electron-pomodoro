@@ -1,0 +1,14 @@
+{
+  "name": "ng-pomodoro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Muhammad Talha",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^12.0.6"
+  }
+}
