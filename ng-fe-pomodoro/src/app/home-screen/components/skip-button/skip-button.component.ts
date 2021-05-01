@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayState } from 'src/app/shared/models/play-state.model';
 import { TimerStateService } from 'src/app/shared/services/timer-state.service';
 
 @Component({
@@ -13,6 +12,6 @@ export class SkipButtonComponent implements OnInit {
     ngOnInit(): void {}
 
     onClick(): void {
-        this.timerStateService.updatePlayState(PlayState.Stopped);
+        this.timerStateService.skipInterval();
     }
 }

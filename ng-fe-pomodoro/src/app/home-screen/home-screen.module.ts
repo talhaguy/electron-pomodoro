@@ -7,9 +7,12 @@ import { ControlsComponent } from './components/controls/controls.component';
 import { PlayPauseButtonComponent } from './components/play-pause-button/play-pause-button.component';
 import { SkipButtonComponent } from './components/skip-button/skip-button.component';
 import { RestartButtonComponent } from './components/restart-button/restart-button.component';
+import { ClockTimeComponent } from './components/clock-time/clock-time.component';
+import { ClockProgressComponent } from './components/clock-progress/clock-progress.component';
+import { ClockComponent } from './components/clock/clock.component';
 
 @NgModule({
-    declarations: [HomeScreenComponent, ControlButtonComponent, ControlsComponent, PlayPauseButtonComponent, SkipButtonComponent, RestartButtonComponent],
+    declarations: [HomeScreenComponent, ControlButtonComponent, ControlsComponent, PlayPauseButtonComponent, SkipButtonComponent, RestartButtonComponent, ClockTimeComponent, ClockProgressComponent, ClockComponent],
     imports: [CommonModule, HomeScreenRoutingModule],
 })
 export class HomeScreenModule {}

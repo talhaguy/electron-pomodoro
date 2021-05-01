@@ -40,11 +40,13 @@ export class PlayPauseButtonComponent implements OnInit, OnDestroy {
     }
 
     public onClick(): void {
-        this.timerStateService.updatePlayState(
+        if (
             this.playState === PlayState.Stopped ||
-                this.playState === PlayState.Paused
-                ? PlayState.Playing
-                : PlayState.Paused
-        );
+            this.playState === PlayState.Paused
+        ) {
+            this.timerStateService.startTimer();
+        } else {
+            this.timerStateService.pauseTimer();
+        }
     }
 }
