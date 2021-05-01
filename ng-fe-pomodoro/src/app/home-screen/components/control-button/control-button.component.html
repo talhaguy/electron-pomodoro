@@ -1,1 +1,3 @@
-<p>control-button works!</p>
+<button [attr.aria-label]="label" (click)="onClick()" class="button">
+    <img [attr.aria-label]="label + ' icon'" [src]="icon" />
+</button>

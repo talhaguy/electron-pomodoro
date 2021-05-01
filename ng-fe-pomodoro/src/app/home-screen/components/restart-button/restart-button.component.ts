@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-restart-button',
-  templateUrl: './restart-button.component.html',
-  styleUrls: ['./restart-button.component.scss']
+    selector: 'app-restart-button',
+    templateUrl: './restart-button.component.html',
+    styleUrls: ['./restart-button.component.scss'],
 })
 export class RestartButtonComponent implements OnInit {
+    constructor() {}
 
-  constructor() { }
+    ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
+    onClick(): void {}
 }
