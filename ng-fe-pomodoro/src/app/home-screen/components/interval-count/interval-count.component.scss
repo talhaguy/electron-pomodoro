@@ -1,0 +1,13 @@
+@use '../../../../styles/variables';
+
+.count-item {
+    width: 25px;
+    height: 25px;
+    background-color: variables.$white;
+    border-radius: 100%;
+    display: inline-block;
+
+    & + & {
+        margin-left: 10px;
+    }
+}

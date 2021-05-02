@@ -20,8 +20,10 @@ export class TimerStateService implements OnInit {
     );
     public intervalType$ = this.intervalType.asObservable();
 
+    private intervalsCompleted = new BehaviorSubject<number>(0);
+    public intervalsCompleted$ = this.intervalsCompleted.asObservable();
+
     private intervalId?: number;
-    private intervalsCompleted = 0;
 
     constructor(
         @Inject(WINDOW) private window: Window | null,
@@ -45,7 +47,7 @@ export class TimerStateService implements OnInit {
         this.intervalType.next(
             this.timerUtilityService.getNextInterval(
                 this.intervalType.value,
-                this.intervalsCompleted
+                this.intervalsCompleted.value
             )
         );
         this.playState.next(PlayState.Stopped);
@@ -79,13 +81,13 @@ export class TimerStateService implements OnInit {
             this.elapsedTime.next(0);
 
             if (this.intervalType.value === IntervalType.Focus) {
-                this.intervalsCompleted += 1;
+                this.intervalsCompleted.next(this.intervalsCompleted.value + 1);
             }
 
             this.intervalType.next(
                 this.timerUtilityService.getNextInterval(
                     this.intervalType.value,
-                    this.intervalsCompleted - 1
+                    this.intervalsCompleted.value - 1
                 )
             );
         }

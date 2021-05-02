@@ -15,5 +15,12 @@ export class ClockProgressComponent implements OnInit {
         return `scaleX(${this.elapsedTime / this.totalTime})`;
     }
 
+    public get percentageLabel(): string {
+        const percentage = Math.round(
+            (this.elapsedTime / this.totalTime) * 100
+        );
+        return `${percentage}% of interval complete`;
+    }
+
     ngOnInit(): void {}
 }

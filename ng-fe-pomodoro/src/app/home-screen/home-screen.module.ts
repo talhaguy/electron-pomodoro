@@ -11,9 +11,10 @@ import { ClockTimeComponent } from './components/clock-time/clock-time.component
 import { ClockProgressComponent } from './components/clock-progress/clock-progress.component';
 import { ClockComponent } from './components/clock/clock.component';
 import { TimePipe } from './pipes/time.pipe';
+import { IntervalCountComponent } from './components/interval-count/interval-count.component';
 
 @NgModule({
-    declarations: [HomeScreenComponent, ControlButtonComponent, ControlsComponent, PlayPauseButtonComponent, SkipButtonComponent, RestartButtonComponent, ClockTimeComponent, ClockProgressComponent, ClockComponent, TimePipe],
+    declarations: [HomeScreenComponent, ControlButtonComponent, ControlsComponent, PlayPauseButtonComponent, SkipButtonComponent, RestartButtonComponent, ClockTimeComponent, ClockProgressComponent, ClockComponent, TimePipe, IntervalCountComponent],
     imports: [CommonModule, HomeScreenRoutingModule],
 })
 export class HomeScreenModule {}
