@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { WINDOW } from '../injection-tokens/window.injection-token';
 import { IntervalType } from '../constants/interval-type.enum';
 import { PlayState } from '../constants/play-state.enum';
+import { TimerUtilityService } from './timer-utility.service';
 
 @Injectable({
     providedIn: 'root',
@@ -22,7 +23,10 @@ export class TimerStateService implements OnInit {
     private intervalId?: number;
     private intervalsCompleted = 0;
 
-    constructor(@Inject(WINDOW) private window: Window | null) {}
+    constructor(
+        @Inject(WINDOW) private window: Window | null,
+        private timerUtilityService: TimerUtilityService
+    ) {}
 
     public ngOnInit(): void {
         if (!this.window) {
@@ -39,7 +43,7 @@ export class TimerStateService implements OnInit {
         this.window?.clearInterval(this.intervalId);
         this.elapsedTime.next(0);
         this.intervalType.next(
-            this.getNextInterval(
+            this.timerUtilityService.getNextInterval(
                 this.intervalType.value,
                 this.intervalsCompleted
             )
@@ -55,48 +59,36 @@ export class TimerStateService implements OnInit {
 
     public startTimer() {
         this.playState.next(PlayState.Playing);
-
-        this.intervalId = this.window?.setInterval(() => {
-            this.elapsedTime.next(this.elapsedTime.value + 1);
-
-            // TODO: dont hard code timer end value
-            if (this.elapsedTime.value >= 5) {
-                this.window?.clearInterval(this.intervalId);
-                this.playState.next(PlayState.Stopped);
-                this.elapsedTime.next(0);
-
-                if (this.intervalType.value === IntervalType.Focus) {
-                    this.intervalsCompleted += 1;
-                    console.log('have now completed ', this.intervalsCompleted);
-                }
-
-                this.intervalType.next(
-                    this.getNextInterval(
-                        this.intervalType.value,
-                        this.intervalsCompleted - 1
-                    )
-                );
-            }
-        }, 1000);
+        this.intervalId = this.window?.setInterval(
+            () => this.timerInterval(),
+            1000
+        );
     }
 
-    // TODO: put this in a utility service
-    public getNextInterval(
-        previousInterval: IntervalType,
-        previousIntervalsCompleted: number
-    ): IntervalType {
-        if (
-            previousInterval === IntervalType.LongBreak ||
-            previousInterval === IntervalType.ShortBreak
-        ) {
-            return IntervalType.Focus;
-        } else {
-            // interval type was focus
-            if ((previousIntervalsCompleted + 1) % 4 === 0) {
-                return IntervalType.LongBreak;
-            } else {
-                return IntervalType.ShortBreak;
+    private timerInterval(): void {
+        this.elapsedTime.next(this.elapsedTime.value + 1);
+
+        const intervalDuration = this.timerUtilityService.getIntervalDuration(
+            this.intervalType.value
+        );
+
+        if (this.elapsedTime.value >= intervalDuration) {
+            this.window?.clearInterval(this.intervalId);
+
+            this.playState.next(PlayState.Stopped);
+            this.elapsedTime.next(0);
+
+            if (this.intervalType.value === IntervalType.Focus) {
+                this.intervalsCompleted += 1;
+                console.log('have now completed ', this.intervalsCompleted);
             }
+
+            this.intervalType.next(
+                this.timerUtilityService.getNextInterval(
+                    this.intervalType.value,
+                    this.intervalsCompleted - 1
+                )
+            );
         }
     }
 }

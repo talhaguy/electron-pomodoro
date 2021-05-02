@@ -4,6 +4,11 @@
 
 export const environment = {
     production: false,
+    intervalDuration: {
+        focus: 5,
+        shortBreak: 2,
+        longBreak: 3,
+    },
 };
 
 /*
