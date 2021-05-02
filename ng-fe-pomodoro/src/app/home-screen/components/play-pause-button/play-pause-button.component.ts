@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { PlayState } from 'src/app/shared/models/play-state.model';
+import { PlayState } from 'src/app/shared/constants/play-state.enum';
 import { TimerStateService } from 'src/app/shared/services/timer-state.service';
 
 @Component({

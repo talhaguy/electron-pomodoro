@@ -1,8 +1,8 @@
 import { Inject, Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { WINDOW } from '../injection-tokens/window.injection-token';
-import { IntervalType } from '../models/interval-type.model';
-import { PlayState } from '../models/play-state.model';
+import { IntervalType } from '../constants/interval-type.enum';
+import { PlayState } from '../constants/play-state.enum';
 
 @Injectable({
     providedIn: 'root',

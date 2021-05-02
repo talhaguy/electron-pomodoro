@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayState } from 'src/app/shared/models/play-state.model';
+import { PlayState } from 'src/app/shared/constants/play-state.enum';
 import { TimerStateService } from 'src/app/shared/services/timer-state.service';
 
 @Component({

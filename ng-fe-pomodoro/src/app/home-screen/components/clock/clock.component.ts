@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { IntervalType } from 'src/app/shared/models/interval-type.model';
-import { TimerStateService } from 'src/app/shared/services/timer-state.service';
+import { TimerStateService } from '../../../shared/services/timer-state.service';
+import { IntervalType } from '../../../shared/constants/interval-type.enum';
 
 @Component({
     selector: 'app-clock',
