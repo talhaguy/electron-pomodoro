@@ -2,4 +2,13 @@
 
 body {
     background-color: variables.$blue;
+    transition: background-color 200ms;
+}
+
+.focus-body {
+    background-color: variables.$blue;
+}
+
+.break-body {
+    background-color: variables.$green;
 }
