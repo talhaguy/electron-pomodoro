@@ -11,5 +11,9 @@ export class ClockTimeComponent implements OnInit {
 
     constructor() {}
 
+    public get remainingTime(): number {
+        return this.totalTime - this.elapsedTime;
+    }
+
     ngOnInit(): void {}
 }

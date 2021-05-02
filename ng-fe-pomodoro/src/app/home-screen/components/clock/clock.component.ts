@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TimerStateService } from '../../../shared/services/timer-state.service';
 import { IntervalType } from '../../../shared/constants/interval-type.enum';
+import { TimerUtilityService } from 'src/app/shared/services/timer-utility.service';
 
 @Component({
     selector: 'app-clock',
@@ -10,12 +11,18 @@ import { IntervalType } from '../../../shared/constants/interval-type.enum';
     styleUrls: ['./clock.component.scss'],
 })
 export class ClockComponent implements OnInit, OnDestroy {
-    public elapsedTime = 0;
-
     private intervalType = IntervalType.LongBreak;
     private unsubscribe = new Subject<void>();
 
-    constructor(private timerStateService: TimerStateService) {}
+    public elapsedTime = 0;
+    public totalIntervalTime = this.timerUtilityService.getIntervalDuration(
+        this.intervalType
+    );
+
+    constructor(
+        private timerStateService: TimerStateService,
+        private timerUtilityService: TimerUtilityService
+    ) {}
 
     public get intervalLabel() {
         switch (this.intervalType) {
@@ -41,6 +48,9 @@ export class ClockComponent implements OnInit, OnDestroy {
             .pipe(takeUntil(this.unsubscribe))
             .subscribe((intervalType) => {
                 this.intervalType = intervalType;
+                this.totalIntervalTime = this.timerUtilityService.getIntervalDuration(
+                    this.intervalType
+                );
             });
     }
 
