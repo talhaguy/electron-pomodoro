@@ -5,7 +5,10 @@
     ></app-clock-time>
 </div>
 <div>
-    <app-clock-progress></app-clock-progress>
+    <app-clock-progress
+        [elapsedTime]="elapsedTime"
+        [totalTime]="totalIntervalTime"
+    ></app-clock-progress>
 </div>
 <div>
     {{ intervalLabel }}

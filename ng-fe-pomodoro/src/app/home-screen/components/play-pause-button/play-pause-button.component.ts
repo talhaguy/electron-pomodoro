@@ -29,7 +29,6 @@ export class PlayPauseButtonComponent implements OnInit, OnDestroy {
         this.timerStateService.playState$
             .pipe(takeUntil(this.unsubscribe))
             .subscribe((playState) => {
-                console.log('got new play state', playState);
                 this.playState = playState;
             });
     }

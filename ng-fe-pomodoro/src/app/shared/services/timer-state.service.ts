@@ -80,7 +80,6 @@ export class TimerStateService implements OnInit {
 
             if (this.intervalType.value === IntervalType.Focus) {
                 this.intervalsCompleted += 1;
-                console.log('have now completed ', this.intervalsCompleted);
             }
 
             this.intervalType.next(
