@@ -19,6 +19,7 @@ export interface Config {
     backCircleColor: string;
     frontCircleColor: string;
     backgroundColor: string;
+    progressLineWidth: number;
     debugTextColor: string;
     debugOn: boolean;
 }

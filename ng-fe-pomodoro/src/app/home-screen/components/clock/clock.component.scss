@@ -1,0 +1,27 @@
+@use "../../../../styles/variables";
+
+.clock {
+    position: relative;
+    width: variables.$progress-width;
+}
+
+.time {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress {
+    position: relative;
+    z-index: 1;
+}
+
+.interval-label {
+    margin-top: 15px;
+    font-size: 1.13rem;
+}

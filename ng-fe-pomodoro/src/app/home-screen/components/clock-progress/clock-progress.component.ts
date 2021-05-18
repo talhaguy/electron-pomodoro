@@ -53,7 +53,7 @@ export class ClockProgressComponent implements OnInit, OnChanges, OnDestroy {
             {
                 backCircleColor: 'transparent',
                 frontCircleColor: 'white',
-                debugOn: true,
+                progressLineWidth: 2,
             }
         );
 

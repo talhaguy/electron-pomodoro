@@ -1,16 +1,18 @@
-<div>
-    <app-clock-time
-        [elapsedTime]="elapsedTime"
-        [totalTime]="totalIntervalTime"
-    ></app-clock-time>
-</div>
-<div>
-    <app-clock-progress
-        [elapsedTime]="elapsedTime"
-        [totalTime]="totalIntervalTime"
-        [id]="progressId"
-    ></app-clock-progress>
-</div>
-<div>
-    {{ intervalLabel }}
+<div class="clock">
+    <div class="time">
+        <app-clock-time
+            [elapsedTime]="elapsedTime"
+            [totalTime]="totalIntervalTime"
+        ></app-clock-time>
+        <div class="interval-label">
+            {{ intervalLabel | uppercase }}
+        </div>
+    </div>
+    <div class="progress">
+        <app-clock-progress
+            [elapsedTime]="elapsedTime"
+            [totalTime]="totalIntervalTime"
+            [id]="progressId"
+        ></app-clock-progress>
+    </div>
 </div>

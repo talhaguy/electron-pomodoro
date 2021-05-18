@@ -3,6 +3,9 @@
 body {
     background-color: variables.$blue;
     transition: background-color 200ms;
+    font-family: variables.$font-primary;
+    color: variables.$font-primary-color;
+    margin: 0;
 }
 
 .focus-body {

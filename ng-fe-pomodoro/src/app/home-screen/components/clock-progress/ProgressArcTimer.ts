@@ -24,6 +24,7 @@ export class ProgressArcTimer {
         backCircleColor: 'lightgray',
         frontCircleColor: 'black',
         backgroundColor: 'transparent',
+        progressLineWidth: 10,
         debugTextColor: 'black',
         debugOn: false,
     };
@@ -97,8 +98,8 @@ export class ProgressArcTimer {
         config: Partial<ArcConfig> = {}
     ): void {
         const defaultConfig: ArcConfig = {
-            lineWidth: 10,
-            strokeStyle: 'black',
+            lineWidth: this.config.progressLineWidth,
+            strokeStyle: this.config.frontCircleColor,
             lineCap: 'round',
         };
         this.progressCanvas.ctx.lineWidth =
@@ -140,6 +141,9 @@ export class ProgressArcTimer {
             this.progressCanvas.width,
             this.progressCanvas.height
         );
+
+        // Don't draw any progress for 0% complete
+        if (percentComplete === 0) return;
 
         // background
         this.drawBackground();
