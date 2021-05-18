@@ -49,8 +49,7 @@ export class ClockProgressComponent implements OnInit, OnChanges, OnDestroy {
         this.progressArcTimer = new ProgressArcTimer(
             this.win,
             canvas,
-            // TODO: use miliseconds through out app for consistency
-            this.totalTime * 1000,
+            this.totalTime,
             {
                 backCircleColor: 'transparent',
                 frontCircleColor: 'white',
@@ -74,12 +73,10 @@ export class ClockProgressComponent implements OnInit, OnChanges, OnDestroy {
                         // This is b/c the timer in progress arc timer is accurate to the ms while `this.elapsedTime`
                         // is only accurate to the second. When pausing, there is a high chance of drift between
                         // the two values.
-                        this.progressArcTimer?.setElapsedTime(
-                            this.elapsedTime * 1000
-                        );
+                        this.progressArcTimer?.setElapsedTime(this.elapsedTime);
                         break;
                     case Command.Reset:
-                        this.progressArcTimer?.reset(this.totalTime * 1000);
+                        this.progressArcTimer?.reset(this.totalTime);
                         break;
                     default:
                         break;
@@ -90,7 +87,7 @@ export class ClockProgressComponent implements OnInit, OnChanges, OnDestroy {
     public ngOnChanges(changes: SimpleChanges) {
         const totalTimeChange = changes['totalTime'];
         if (totalTimeChange && !totalTimeChange.firstChange) {
-            this.progressArcTimer?.reset(totalTimeChange.currentValue * 1000);
+            this.progressArcTimer?.reset(totalTimeChange.currentValue);
         }
     }
 

@@ -68,7 +68,7 @@ export class TimerStateService implements OnInit {
     }
 
     private timerInterval(): void {
-        this.elapsedTime.next(this.elapsedTime.value + 1);
+        this.elapsedTime.next(this.elapsedTime.value + 1000);
 
         const intervalDuration = this.timerUtilityService.getIntervalDuration(
             this.intervalType.value

@@ -4,7 +4,8 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'time',
 })
 export class TimePipe implements PipeTransform {
-    transform(seconds: number): string {
+    transform(ms: number): string {
+        const seconds = ms / 1000;
         const minutes = seconds / 60;
         const minutesOnly = Math.trunc(minutes);
         const secondsOnly = Math.round((minutes - minutesOnly) * 60);
