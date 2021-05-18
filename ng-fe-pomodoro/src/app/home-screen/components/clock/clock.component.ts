@@ -4,6 +4,8 @@ import { takeUntil } from 'rxjs/operators';
 import { TimerStateService } from '../../../shared/services/timer-state.service';
 import { IntervalType } from '../../../shared/constants/interval-type.enum';
 import { TimerUtilityService } from 'src/app/shared/services/timer-utility.service';
+import { PlayState } from 'src/app/shared/constants/play-state.enum';
+import { ClockProgressControllerService } from '../clock-progress/clock-progress-controller.service';
 
 @Component({
     selector: 'app-clock',
@@ -18,10 +20,12 @@ export class ClockComponent implements OnInit, OnDestroy {
     public totalIntervalTime = this.timerUtilityService.getIntervalDuration(
         this.intervalType
     );
+    public progressId = 'progressId';
 
     constructor(
         private timerStateService: TimerStateService,
-        private timerUtilityService: TimerUtilityService
+        private timerUtilityService: TimerUtilityService,
+        private clockProgressControllerService: ClockProgressControllerService
     ) {}
 
     public get intervalLabel() {
@@ -51,6 +55,37 @@ export class ClockComponent implements OnInit, OnDestroy {
                 this.totalIntervalTime = this.timerUtilityService.getIntervalDuration(
                     this.intervalType
                 );
+            });
+
+        this.timerStateService.playState$
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe((playState) => {
+                if (
+                    !this.clockProgressControllerService.isInitialized(
+                        this.progressId
+                    )
+                )
+                    return;
+
+                switch (playState) {
+                    case PlayState.Playing:
+                        this.clockProgressControllerService.start(
+                            this.progressId
+                        );
+                        break;
+                    case PlayState.Paused:
+                        this.clockProgressControllerService.pause(
+                            this.progressId
+                        );
+                        break;
+                    case PlayState.Stopped:
+                        this.clockProgressControllerService.reset(
+                            this.progressId
+                        );
+                        break;
+                    default:
+                        break;
+                }
             });
     }
 

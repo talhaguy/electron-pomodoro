@@ -25,7 +25,7 @@ export class ProgressArcTimer {
         frontCircleColor: 'black',
         backgroundColor: 'transparent',
         debugTextColor: 'black',
-        debugOn: true,
+        debugOn: false,
     };
 
     private progressCanvas: ProgressCanvas;
@@ -82,6 +82,13 @@ export class ProgressArcTimer {
                 storedConfig[key] = value;
             }
         }
+    }
+
+    public setElapsedTime(time: number) {
+        this.elapsed = time;
+        const percentDone = this.elapsed / this.endTime;
+        this.drawProgress(percentDone);
+        this.drawDebug();
     }
 
     private drawArc(
@@ -275,6 +282,10 @@ export class ProgressArcTimer {
                 endTime,
             },
         };
+
+        if (endTime !== null) {
+            this.endTime = endTime;
+        }
     }
 
     private degToRad(deg: number): number {
