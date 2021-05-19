@@ -1,5 +1,4 @@
 <app-control-button
-    *ngIf="(playState$ | async) !== playStates.Stopped"
     [label]="'Restart'"
     (buttonClick)="onClick()"
     icon="assets/replay_white_24dp.svg"

@@ -1,3 +1,11 @@
-<app-play-pause-button></app-play-pause-button>
-<app-skip-button></app-skip-button>
-<app-restart-button></app-restart-button>
+<div class="buttons">
+    <div class="button">
+        <app-play-pause-button></app-play-pause-button>
+    </div>
+    <div class="button" *ngIf="(playState$ | async) !== playStates.Stopped">
+        <app-restart-button></app-restart-button>
+    </div>
+    <div class="button">
+        <app-skip-button></app-skip-button>
+    </div>
+</div>

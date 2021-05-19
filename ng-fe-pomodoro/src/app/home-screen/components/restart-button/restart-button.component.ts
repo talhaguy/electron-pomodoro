@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayState } from 'src/app/shared/constants/play-state.enum';
 import { TimerStateService } from 'src/app/shared/services/timer-state.service';
 
 @Component({
@@ -8,9 +7,6 @@ import { TimerStateService } from 'src/app/shared/services/timer-state.service';
     styleUrls: ['./restart-button.component.scss'],
 })
 export class RestartButtonComponent implements OnInit {
-    public playState$ = this.timerStateService.playState$;
-    public playStates = PlayState;
-
     constructor(private timerStateService: TimerStateService) {}
 
     ngOnInit(): void {}
