@@ -1,11 +1,22 @@
-<div class="buttons">
-    <div class="button">
+<div
+    class="buttons"
+    [ngStyle]="{
+        width: 40 * (playState === playStates.Stopped ? 2 : 3) + 'px'
+    }"
+>
+    <div
+        class="button left-button"
+        [class.move-left]="playState !== playStates.Stopped"
+    >
         <app-play-pause-button></app-play-pause-button>
     </div>
-    <div class="button" *ngIf="(playState$ | async) !== playStates.Stopped">
+    <div class="button" @enterTrigger *ngIf="playState !== playStates.Stopped">
         <app-restart-button></app-restart-button>
     </div>
-    <div class="button">
+    <div
+        class="button right-button"
+        [class.move-right]="playState !== playStates.Stopped"
+    >
         <app-skip-button></app-skip-button>
     </div>
 </div>

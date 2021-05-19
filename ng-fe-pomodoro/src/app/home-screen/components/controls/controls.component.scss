@@ -1,8 +1,30 @@
+$button-width: 40px;
+$button-margin: 10px;
+
 .buttons {
-    display: flex;
+    position: relative;
+    height: $button-width;
 }
+
 .button {
-    & + & {
-        margin-left: 10px;
-    }
+    position: absolute;
+    top: 0;
+    left: calc(50% - (#{$button-width / 2}));
+    transition: transform 200ms;
+}
+
+.left-button {
+    transform: translateX(-$button-width/2 + -$button-margin/2);
+}
+
+.right-button {
+    transform: translateX($button-width/2 + $button-margin/2);
+}
+
+.move-left {
+    transform: translateX(-$button-width + -$button-margin);
+}
+
+.move-right {
+    transform: translateX($button-width + $button-margin);
 }

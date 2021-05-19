@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeScreenRoutingModule } from './home-screen-routing.module';
 import { HomeScreenComponent } from './components/home-screen/home-screen.component';
 import { ControlButtonComponent } from './components/control-button/control-button.component';
@@ -14,7 +15,19 @@ import { TimePipe } from './pipes/time.pipe';
 import { IntervalCountComponent } from './components/interval-count/interval-count.component';
 
 @NgModule({
-    declarations: [HomeScreenComponent, ControlButtonComponent, ControlsComponent, PlayPauseButtonComponent, SkipButtonComponent, RestartButtonComponent, ClockTimeComponent, ClockProgressComponent, ClockComponent, TimePipe, IntervalCountComponent],
+    declarations: [
+        HomeScreenComponent,
+        ControlButtonComponent,
+        ControlsComponent,
+        PlayPauseButtonComponent,
+        SkipButtonComponent,
+        RestartButtonComponent,
+        ClockTimeComponent,
+        ClockProgressComponent,
+        ClockComponent,
+        TimePipe,
+        IntervalCountComponent,
+    ],
     imports: [CommonModule, HomeScreenRoutingModule],
 })
 export class HomeScreenModule {}
