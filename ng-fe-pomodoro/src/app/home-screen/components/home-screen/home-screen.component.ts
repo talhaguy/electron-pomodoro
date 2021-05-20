@@ -13,6 +13,8 @@ import { TimerStateService } from 'src/app/shared/services/timer-state.service';
 export class HomeScreenComponent implements OnInit, OnDestroy {
     private unsubscribe = new Subject<void>();
 
+    public intervalsCompleted$ = this.timerStateService.intervalsCompleted$;
+
     constructor(
         private timerStateService: TimerStateService,
         private renderer: Renderer2,

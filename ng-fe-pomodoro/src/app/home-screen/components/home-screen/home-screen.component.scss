@@ -7,6 +7,23 @@
 }
 
 .counts {
-    height: 15px;
+    min-height: 20px;
     margin-top: 30px;
+    position: relative;
+
+    &:hover {
+        .balloon {
+            opacity: 1;
+        }
+    }
+}
+
+.balloon {
+    opacity: 0;
+    width: 240px;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    transition: opacity 200ms;
 }

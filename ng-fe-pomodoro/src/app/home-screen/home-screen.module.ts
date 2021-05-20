@@ -13,6 +13,7 @@ import { ClockProgressComponent } from './components/clock-progress/clock-progre
 import { ClockComponent } from './components/clock/clock.component';
 import { TimePipe } from './pipes/time.pipe';
 import { IntervalCountComponent } from './components/interval-count/interval-count.component';
+import { SpeechBalloonComponent } from './components/speech-balloon/speech-balloon.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { IntervalCountComponent } from './components/interval-count/interval-cou
         ClockComponent,
         TimePipe,
         IntervalCountComponent,
+        SpeechBalloonComponent,
     ],
     imports: [CommonModule, HomeScreenRoutingModule],
 })

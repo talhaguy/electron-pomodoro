@@ -7,5 +7,12 @@
     </div>
     <div class="counts">
         <app-interval-count></app-interval-count>
+        <div class="balloon">
+            <app-speech-balloon
+                [message]="
+                    (intervalsCompleted$ | async) + ' interval(s) completed'
+                "
+            ></app-speech-balloon>
+        </div>
     </div>
 </div>
