@@ -5,9 +5,9 @@
 export const environment = {
     production: false,
     intervalDuration: {
-        focus: 5000,
-        shortBreak: 2000,
-        longBreak: 3000,
+        focus: 1000,
+        shortBreak: 1000,
+        longBreak: 1000,
     },
 };
 
