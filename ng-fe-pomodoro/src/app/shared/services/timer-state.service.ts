@@ -91,7 +91,7 @@ export class TimerStateService {
                 this.intervalsCompleted.next(this.intervalsCompleted.value + 1);
                 this.storageService
                     .saveData({
-                        intervalsCompleted: this.intervalsCompleted,
+                        intervalsCompleted: this.intervalsCompleted.value,
                     })
                     .subscribe(
                         () => {},
