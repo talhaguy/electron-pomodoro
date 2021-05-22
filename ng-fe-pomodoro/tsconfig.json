@@ -18,6 +18,11 @@
         "module": "es2020",
         "lib": ["es2018", "dom"]
     },
+    "references": [
+        {
+            "path": "../shared"
+        }
+    ],
     "angularCompilerOptions": {
         "strictInjectionParameters": true,
         "strictInputAccessModifiers": true,

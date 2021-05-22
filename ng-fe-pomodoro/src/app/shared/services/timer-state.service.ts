@@ -4,11 +4,12 @@ import { WINDOW } from '../injection-tokens/window.injection-token';
 import { IntervalType } from '../constants/interval-type.enum';
 import { PlayState } from '../constants/play-state.enum';
 import { TimerUtilityService } from './timer-utility.service';
+import { StorageService } from './storage.service';
 
 @Injectable({
     providedIn: 'root',
 })
-export class TimerStateService implements OnInit {
+export class TimerStateService {
     private playState = new BehaviorSubject<PlayState>(PlayState.Stopped);
     public playState$ = this.playState.asObservable();
 
@@ -27,13 +28,19 @@ export class TimerStateService implements OnInit {
 
     constructor(
         @Inject(WINDOW) private window: Window | null,
-        private timerUtilityService: TimerUtilityService
-    ) {}
-
-    public ngOnInit(): void {
+        private timerUtilityService: TimerUtilityService,
+        private storageService: StorageService
+    ) {
         if (!this.window) {
             throw new Error('Window API not available.');
         }
+
+        this.storageService.getData().subscribe(
+            (data) => {
+                this.intervalsCompleted.next(data.intervalsCompleted);
+            },
+            () => {}
+        );
     }
 
     public pauseTimer() {
@@ -82,6 +89,14 @@ export class TimerStateService implements OnInit {
 
             if (this.intervalType.value === IntervalType.Focus) {
                 this.intervalsCompleted.next(this.intervalsCompleted.value + 1);
+                this.storageService
+                    .saveData({
+                        intervalsCompleted: this.intervalsCompleted,
+                    })
+                    .subscribe(
+                        () => {},
+                        () => {}
+                    );
             }
 
             this.intervalType.next(
