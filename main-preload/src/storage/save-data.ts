@@ -3,7 +3,6 @@ import { DATA_DIRECTORY, SAVE_FILE } from './constants';
 import { FSPromises } from './models';
 
 function isDataValid(data: SaveData) {
-    console.log('type of data ', typeof data, data);
     if (typeof data.intervalsCompleted === 'number') {
         return true;
     }
@@ -14,9 +13,8 @@ function isDataValid(data: SaveData) {
 export async function getDataFromSaveFile(fsPromises: FSPromises) {
     try {
         const data = await fsPromises.readFile(SAVE_FILE, { encoding: 'utf8' });
-        console.log('before pase', data);
         const parsed = parseFileData(data);
-        console.log('af pase', parsed);
+
         if (isDataValid(parsed)) {
             return parsed;
         } else {
@@ -25,8 +23,7 @@ export async function getDataFromSaveFile(fsPromises: FSPromises) {
             throw err;
         }
     } catch (err) {
-        console.log('There was an error');
-        console.log(err.code);
+        console.log(err.message);
         return handleReadFileErrors(fsPromises, err);
     }
 }
@@ -54,8 +51,7 @@ async function handleReadFileErrors(fsPromises: FSPromises, err: any) {
                 await createSaveFileInFolder(fsPromises, data);
                 return data;
             } catch (err) {
-                console.log('Error while trying to create file');
-                console.log(err);
+                console.log(err.message);
                 throw err;
             }
         default:
@@ -71,9 +67,8 @@ export async function createSaveFileInFolder(
         await fsPromises.access(DATA_DIRECTORY);
         return writeFile(fsPromises, data);
     } catch (err) {
+        console.log(err.message);
         console.log('Save data folder does not exist');
-        console.log(err);
-
         return createDataDirAndWriteFile(fsPromises, data);
     }
 }
@@ -91,12 +86,11 @@ async function createDataDirAndWriteFile(
     data: SaveData
 ) {
     try {
-        console.log('Creating folder');
         await fsPromises.mkdir(DATA_DIRECTORY);
         return writeFile(fsPromises, data);
     } catch (err) {
         console.log('Error creating folder');
-        console.log(err);
+        console.log(err.message);
         throw err;
     }
 }
