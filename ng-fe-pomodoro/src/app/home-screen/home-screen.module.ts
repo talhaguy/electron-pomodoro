@@ -14,6 +14,7 @@ import { ClockComponent } from './components/clock/clock.component';
 import { TimePipe } from './pipes/time.pipe';
 import { IntervalCountComponent } from './components/interval-count/interval-count.component';
 import { SpeechBalloonComponent } from './components/speech-balloon/speech-balloon.component';
+import { DeleteDataButtonComponent } from './components/delete-data-button/delete-data-button.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { SpeechBalloonComponent } from './components/speech-balloon/speech-ballo
         TimePipe,
         IntervalCountComponent,
         SpeechBalloonComponent,
+        DeleteDataButtonComponent,
     ],
     imports: [CommonModule, HomeScreenRoutingModule],
 })

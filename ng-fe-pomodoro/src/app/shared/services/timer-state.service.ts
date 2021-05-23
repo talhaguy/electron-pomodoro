@@ -101,7 +101,19 @@ export class TimerStateService {
         }
     }
 
-    public setNumIntervalsCompleted(num: number) {
+    public setNumIntervalsCompleted(num: number): void {
         this.intervalsCompleted.next(num);
+    }
+
+    public resetNumIntervalsCompleted(): void {
+        this.intervalsCompleted.next(0);
+        this.storageService
+            .saveData({
+                intervalsCompleted: 0,
+            })
+            .subscribe(
+                () => {},
+                () => {}
+            );
     }
 }

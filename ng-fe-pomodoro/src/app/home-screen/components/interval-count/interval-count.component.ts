@@ -35,6 +35,19 @@ import { TimerStateService } from 'src/app/shared/services/timer-state.service';
                     ])
                 ),
             ]),
+            transition(':leave', [
+                style({
+                    transform: 'scale(1)',
+                    offset: 0,
+                }),
+                animate(
+                    '200ms',
+                    style({
+                        transform: 'scale(0)',
+                        offset: 0,
+                    })
+                ),
+            ]),
         ]),
     ],
 })

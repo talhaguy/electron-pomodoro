@@ -27,3 +27,9 @@
     transform: translate(-50%, 100%);
     transition: opacity 200ms;
 }
+
+.delete-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
