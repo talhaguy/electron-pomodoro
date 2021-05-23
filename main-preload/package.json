@@ -2,13 +2,21 @@
   "name": "ng-pomodoro",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "./dist/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "ttsc -b -v",
+    "clean": "ttsc -b --clean"
   },
   "author": "Muhammad Talha",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^12.0.6"
-  }
+    "@types/electron": "^1.6.10",
+    "@types/node": "^15.6.0",
+    "electron": "^12.0.6",
+    "ttypescript": "^1.5.12",
+    "typescript": "^4.2.4",
+    "typescript-transform-paths": "^2.2.4"
+  },
+  "dependencies": {}
 }

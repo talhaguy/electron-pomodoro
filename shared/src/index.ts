@@ -1,7 +1,7 @@
 export interface API {
     storage: {
         getData: () => Promise<SaveData>;
-        saveData: (data: SaveData) => Promise<SaveData>;
+        saveData: (data: SaveData) => Promise<void>;
     };
 }
 

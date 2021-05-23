@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import { API } from '../../../../../shared';
+import { API } from '@app/shared';
 
 declare const api: API;
 

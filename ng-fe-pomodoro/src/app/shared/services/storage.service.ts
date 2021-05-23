@@ -1,8 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-// TODO: use shorter path
-import { API, SaveData } from '../../../../../shared';
+import { catchError, map } from 'rxjs/operators';
+import { API, SaveData } from '@app/shared';
 import { ApiToken } from '../injection-tokens/api.injection-token';
 
 @Injectable({
@@ -11,7 +10,6 @@ import { ApiToken } from '../injection-tokens/api.injection-token';
 export class StorageService {
     constructor(@Inject(ApiToken) private api: API) {}
 
-    // TODO: type data better
     public saveData(data: SaveData): Observable<SaveData> {
         return from(
             this.api.storage
@@ -34,7 +32,6 @@ export class StorageService {
         );
     }
 
-    // TODO: type data better
     public getData(): Observable<SaveData> {
         return from(
             this.api.storage

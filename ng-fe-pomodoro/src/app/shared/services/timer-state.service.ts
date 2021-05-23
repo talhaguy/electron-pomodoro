@@ -1,4 +1,4 @@
-import { Inject, Injectable, OnInit } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { WINDOW } from '../injection-tokens/window.injection-token';
 import { IntervalType } from '../constants/interval-type.enum';
