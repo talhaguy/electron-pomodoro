@@ -9,14 +9,14 @@ function createWindow() {
             preload: path.join(__dirname, 'preload.js'),
         },
     });
-
-    win.webContents.openDevTools();
     const indexFile = path.join(
         __dirname,
         '..',
         '..',
         '/ng-fe-pomodoro/dist/ng-fe-pomodoro/index.html'
     );
+
+    win.webContents.openDevTools();
     win.loadFile(indexFile);
 
     // https://github.com/electron/electron/issues/14978
