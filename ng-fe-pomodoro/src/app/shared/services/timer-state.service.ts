@@ -34,13 +34,6 @@ export class TimerStateService {
         if (!this.window) {
             throw new Error('Window API not available.');
         }
-
-        this.storageService.getData().subscribe(
-            (data) => {
-                this.intervalsCompleted.next(data.intervalsCompleted);
-            },
-            () => {}
-        );
     }
 
     public pauseTimer() {
@@ -106,5 +99,9 @@ export class TimerStateService {
                 )
             );
         }
+    }
+
+    public setNumIntervalsCompleted(num: number) {
+        this.intervalsCompleted.next(num);
     }
 }
