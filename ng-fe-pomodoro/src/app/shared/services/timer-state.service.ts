@@ -36,12 +36,12 @@ export class TimerStateService {
         }
     }
 
-    public pauseTimer() {
+    public pauseTimer(): void {
         this.window?.clearInterval(this.intervalId);
         this.playState.next(PlayState.Paused);
     }
 
-    public skipInterval() {
+    public skipInterval(): void {
         this.window?.clearInterval(this.intervalId);
         this.elapsedTime.next(0);
         this.intervalType.next(
@@ -53,13 +53,13 @@ export class TimerStateService {
         this.playState.next(PlayState.Stopped);
     }
 
-    public resetTimer() {
+    public resetTimer(): void {
         this.window?.clearInterval(this.intervalId);
         this.elapsedTime.next(0);
         this.playState.next(PlayState.Stopped);
     }
 
-    public startTimer() {
+    public startTimer(): void {
         this.playState.next(PlayState.Playing);
         this.intervalId = this.window?.setInterval(
             () => this.timerInterval(),
