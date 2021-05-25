@@ -1,10 +1,5 @@
-import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, of, Subject } from 'rxjs';
-import { WINDOW } from '../injection-tokens/window.injection-token';
-import { IntervalType } from '../constants/interval-type.enum';
-import { PlayState } from '../constants/play-state.enum';
-import { TimerUtilityService } from './timer-utility.service';
-import { StorageService } from './storage.service';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',

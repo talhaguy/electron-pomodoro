@@ -36,22 +36,19 @@ export class ClockProgressControllerService {
     }
 
     public start(id: string): void {
-        if (!this.commandSubjectMap[id])
-            throw new Error('No id found for command subject.');
+        this.throwErrorForIdNotFoundInSubjectMap(id);
 
         this.commandSubjectMap[id].next(Command.Start);
     }
 
     public pause(id: string): void {
-        if (!this.commandSubjectMap[id])
-            throw new Error('No id found for command subject.');
+        this.throwErrorForIdNotFoundInSubjectMap(id);
 
         this.commandSubjectMap[id].next(Command.Pause);
     }
 
     public reset(id: string): void {
-        if (!this.commandSubjectMap[id])
-            throw new Error('No id found for command subject.');
+        this.throwErrorForIdNotFoundInSubjectMap(id);
 
         this.commandSubjectMap[id].next(Command.Reset);
     }
@@ -61,5 +58,10 @@ export class ClockProgressControllerService {
             throw new Error('No id found for command observable.');
 
         return this.commandObservableMap[id];
+    }
+
+    private throwErrorForIdNotFoundInSubjectMap(id: string): void {
+        if (!this.commandSubjectMap[id])
+            throw new Error('No id found for command subject.');
     }
 }
