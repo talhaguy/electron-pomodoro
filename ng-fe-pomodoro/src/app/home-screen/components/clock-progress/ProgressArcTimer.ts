@@ -33,7 +33,7 @@ export class ProgressArcTimer {
 
     constructor(
         private win: Window,
-        canvasEle: HTMLCanvasElement,
+        canvasEle: HTMLCanvasElement | null,
         endTime: number,
         config: Partial<Config> = {},
         elapsed: number = 0
@@ -292,6 +292,7 @@ export class ProgressArcTimer {
         }
     }
 
+    // TODO: Move this method to a utilty class or package
     private degToRad(deg: number): number {
         return (Math.PI * deg) / 180;
     }
