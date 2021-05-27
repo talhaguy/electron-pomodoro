@@ -1,5 +1,6 @@
 import { ControlSignalType } from './progress-arc-timer.enum';
 import { ProgressArcTimer } from './ProgressArcTimer';
+import { twoDContext, canvasEle } from '../../../../test-support/mocks';
 
 /**
  * Note, some of these tests are checking if something is drawn to the canvas
@@ -14,22 +15,6 @@ describe('ProgressArcTimer', () => {
     const window = ({
         requestAnimationFrame: jest.fn(),
     } as unknown) as Window;
-
-    const twoDContext = {
-        clearRect: jest.fn(),
-        fillRect: jest.fn(),
-        stroke: jest.fn(),
-        strokePath: jest.fn(),
-        fillText: jest.fn(),
-        arc: jest.fn(),
-        beginPath: jest.fn(),
-        closePath: jest.fn(),
-    };
-
-    const canvasEle = ({
-        getAttribute: jest.fn().mockReturnValue('500'),
-        getContext: jest.fn().mockReturnValue(twoDContext),
-    } as unknown) as HTMLCanvasElement;
 
     afterEach(() => {
         jest.clearAllMocks();

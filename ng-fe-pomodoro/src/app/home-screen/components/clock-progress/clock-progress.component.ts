@@ -36,7 +36,8 @@ export class ClockProgressComponent implements OnInit, OnChanges, OnDestroy {
         @Inject(WINDOW) private win: Window
     ) {}
 
-    @ViewChild('canvas', { static: true }) foo?: ElementRef<HTMLCanvasElement>;
+    @ViewChild('canvas', { static: true })
+    canvas?: ElementRef<HTMLCanvasElement>;
 
     public ngOnInit(): void {
         // Prevent any DOM rendering
@@ -44,7 +45,7 @@ export class ClockProgressComponent implements OnInit, OnChanges, OnDestroy {
         // But if there is ever an ngIf added, it may
         this.changeDetectorRef.detach();
 
-        const canvas = this.foo?.nativeElement;
+        const canvas = this.canvas?.nativeElement;
         if (!canvas) return;
         this.progressArcTimer = new ProgressArcTimer(
             this.win,
