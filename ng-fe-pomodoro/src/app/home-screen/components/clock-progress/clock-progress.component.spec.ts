@@ -141,4 +141,15 @@ describe('ClockProgressComponent', () => {
             expect(resetSpy).not.toHaveBeenCalled();
         });
     });
+
+    describe('ngOnDestroy()', () => {
+        it('should deinitialize clock progress controller', () => {
+            const deinitControllerSpy = jest.spyOn(
+                clockProgressControllerService,
+                'deinitController'
+            );
+            component.ngOnDestroy();
+            expect(deinitControllerSpy).toHaveBeenCalledWith(component.id);
+        });
+    });
 });
