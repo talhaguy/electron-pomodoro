@@ -1,18 +1,25 @@
-<div class="clock">
-    <div class="time">
-        <app-clock-time
-            [elapsedTime]="elapsedTime"
-            [totalTime]="totalIntervalTime"
-        ></app-clock-time>
-        <div class="interval-label">
-            {{ intervalLabel | uppercase }}
+<ng-container
+    *ngIf="{
+        interval: interval$ | async,
+        elapsedTime: elapsedTime$ | async
+    } as data"
+>
+    <div class="clock" *ngIf="data.interval && data.elapsedTime != null">
+        <div class="time">
+            <app-clock-time
+                [elapsedTime]="data.elapsedTime"
+                [totalTime]="data.interval.totalIntervalTime"
+            ></app-clock-time>
+            <div class="interval-label">
+                {{ data.interval.label | uppercase }}
+            </div>
+        </div>
+        <div class="progress">
+            <app-clock-progress
+                [elapsedTime]="data.elapsedTime"
+                [totalTime]="data.interval.totalIntervalTime"
+                [id]="progressId"
+            ></app-clock-progress>
         </div>
     </div>
-    <div class="progress">
-        <app-clock-progress
-            [elapsedTime]="elapsedTime"
-            [totalTime]="totalIntervalTime"
-            [id]="progressId"
-        ></app-clock-progress>
-    </div>
-</div>
+</ng-container>
