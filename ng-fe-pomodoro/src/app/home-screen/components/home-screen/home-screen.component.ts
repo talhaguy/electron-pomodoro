@@ -1,44 +1,22 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnDestroy, OnInit, Renderer2 } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { IntervalType } from 'src/app/shared/constants/interval-type.enum';
+import { Component, OnInit } from '@angular/core';
 import { TimerStateService } from 'src/app/shared/services/timer-state.service';
+import { HomeScreenService } from './home-screen.service';
 
 @Component({
     selector: 'app-home-screen',
     templateUrl: './home-screen.component.html',
     styleUrls: ['./home-screen.component.scss'],
+    providers: [HomeScreenService],
 })
-export class HomeScreenComponent implements OnInit, OnDestroy {
-    private unsubscribe = new Subject<void>();
-
+export class HomeScreenComponent implements OnInit {
     public intervalsCompleted$ = this.timerStateService.intervalsCompleted$;
 
     constructor(
         private timerStateService: TimerStateService,
-        private renderer: Renderer2,
-        @Inject(DOCUMENT) private document: Document
+        private homeScreenService: HomeScreenService
     ) {}
 
     ngOnInit(): void {
-        this.renderer.addClass(this.document.body, 'focus-body');
-
-        this.timerStateService.intervalType$
-            .pipe(takeUntil(this.unsubscribe))
-            .subscribe((intervalType) => {
-                if (intervalType === IntervalType.Focus) {
-                    this.renderer.addClass(this.document.body, 'focus-body');
-                    this.renderer.removeClass(this.document.body, 'break-body');
-                } else {
-                    this.renderer.addClass(this.document.body, 'break-body');
-                    this.renderer.removeClass(this.document.body, 'focus-body');
-                }
-            });
-    }
-
-    ngOnDestroy(): void {
-        this.unsubscribe.next();
-        this.unsubscribe.complete();
+        this.homeScreenService.startBodyStyleUpdates();
     }
 }
