@@ -23,6 +23,7 @@
             class="button"
             @enterTrigger
             *ngIf="data.playState !== playStates.Stopped"
+            data-testid="restart-btn"
         >
             <app-restart-button></app-restart-button>
         </div>
