@@ -1,22 +1,36 @@
-<div
-    class="buttons"
-    [ngStyle]="{
-        width: 40 * (playState === playStates.Stopped ? 2 : 3) + 'px'
-    }"
+<!--
+    Wrap play state in object b/c it can return 0 which causes ngIf
+    to not render elements b/c it is falsey.
+-->
+<ng-container
+    *ngIf="{
+        playState: playState$ | async
+    } as data"
 >
     <div
-        class="button left-button"
-        [class.move-left]="playState !== playStates.Stopped"
+        class="buttons"
+        [ngStyle]="{
+            width: 40 * (data.playState === playStates.Stopped ? 2 : 3) + 'px'
+        }"
     >
-        <app-play-pause-button></app-play-pause-button>
+        <div
+            class="button left-button"
+            [class.move-left]="data.playState !== playStates.Stopped"
+        >
+            <app-play-pause-button></app-play-pause-button>
+        </div>
+        <div
+            class="button"
+            @enterTrigger
+            *ngIf="data.playState !== playStates.Stopped"
+        >
+            <app-restart-button></app-restart-button>
+        </div>
+        <div
+            class="button right-button"
+            [class.move-right]="data.playState !== playStates.Stopped"
+        >
+            <app-skip-button></app-skip-button>
+        </div>
     </div>
-    <div class="button" @enterTrigger *ngIf="playState !== playStates.Stopped">
-        <app-restart-button></app-restart-button>
-    </div>
-    <div
-        class="button right-button"
-        [class.move-right]="playState !== playStates.Stopped"
-    >
-        <app-skip-button></app-skip-button>
-    </div>
-</div>
+</ng-container>

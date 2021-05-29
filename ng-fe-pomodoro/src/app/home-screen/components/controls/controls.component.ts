@@ -1,7 +1,5 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Component } from '@angular/core';
 import { PlayState } from 'src/app/shared/constants/play-state.enum';
 import { TimerStateService } from 'src/app/shared/services/timer-state.service';
 
@@ -33,26 +31,9 @@ import { TimerStateService } from 'src/app/shared/services/timer-state.service';
         ]),
     ],
 })
-export class ControlsComponent implements OnInit, OnDestroy {
-    public playState: PlayState = PlayState.Stopped;
+export class ControlsComponent {
+    public playState$ = this.timerStateService.playState$;
     public playStates = PlayState;
 
-    private unsubscribe = new Subject<void>();
-
     constructor(private timerStateService: TimerStateService) {}
-
-    ngOnInit(): void {
-        // Not using async pipe as this observable can return 0.
-        // 0 forces *ngIf to evaluate as false when using the `playState$ | async as playState` syntax
-        this.timerStateService.playState$
-            .pipe(takeUntil(this.unsubscribe))
-            .subscribe((playState) => {
-                this.playState = playState;
-            });
-    }
-
-    ngOnDestroy(): void {
-        this.unsubscribe.next();
-        this.unsubscribe.complete();
-    }
 }
