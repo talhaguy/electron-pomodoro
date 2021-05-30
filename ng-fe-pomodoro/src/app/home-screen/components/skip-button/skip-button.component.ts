@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TimerStateService } from 'src/app/shared/services/timer-state.service';
 
 @Component({
@@ -6,10 +6,8 @@ import { TimerStateService } from 'src/app/shared/services/timer-state.service';
     templateUrl: './skip-button.component.html',
     styleUrls: ['./skip-button.component.scss'],
 })
-export class SkipButtonComponent implements OnInit {
+export class SkipButtonComponent {
     constructor(private timerStateService: TimerStateService) {}
-
-    ngOnInit(): void {}
 
     onClick(): void {
         this.timerStateService.skipInterval();
