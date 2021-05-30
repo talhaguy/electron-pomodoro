@@ -2,6 +2,8 @@
 
 This is the monorepo for the NG Electron Pomodoro app.
 
+![Screenshot of app](screenshot.png)
+
 The top level folders are packages. Each package contains its own `README.md` inside.
 
 ## Tech
