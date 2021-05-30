@@ -17,7 +17,7 @@ export class HomeScreenService implements OnDestroy {
         @Inject(DOCUMENT) private document: Document
     ) {}
 
-    startBodyStyleUpdates() {
+    public startBodyStyleUpdates(): void {
         this.renderer.addClass(this.document.body, 'focus-body');
 
         this.timerStateService.intervalType$
@@ -33,7 +33,7 @@ export class HomeScreenService implements OnDestroy {
             });
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.unsubscribe.next();
         this.unsubscribe.complete();
     }
