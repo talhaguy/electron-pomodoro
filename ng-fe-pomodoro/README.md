@@ -1,27 +1,30 @@
 # NgFePomodoro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
+This is the front end of the app.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm run start` for a dev server.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build` to build the project. The default setting is to build for production.
 
-## Running unit tests
+## Unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm run test` to execute the unit tests.
 
+## Unit test coverage
+
+Run `npm run coverage` to run tests and generate coverage.
+
+<!--
+TODO: uncomment after adding e2e testing
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+-->
 
-## Further help
+## Running build stats analyzer
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run `npm run build:stats && npm run analyze` to start a local web server with `webpack-bundle-analyzer`.
