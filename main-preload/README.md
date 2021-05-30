@@ -1,6 +1,10 @@
 # Main-Preload
 
-This is the main/preload electron package of the app.
+This is the main/preload Electron package of the app.
+
+## Tech
+
+This is an Electron package using TypeScript.
 
 ## Build
 

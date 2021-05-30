@@ -2,6 +2,16 @@
 
 This is the front end package of the app.
 
+## Tech
+
+-   Angular
+-   TypeScript
+-   Jest
+<!--
+TODO: Uncomment when e2e testing is added
+-   Cypress
+    -->
+
 ## Development server
 
 Run `npm run start` for a dev server.

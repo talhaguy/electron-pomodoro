@@ -16,7 +16,9 @@ function createWindow() {
         '/ng-fe-pomodoro/dist/ng-fe-pomodoro/index.html'
     );
 
-    win.webContents.openDevTools();
+    // Comment out for production
+    // win.webContents.openDevTools();
+
     win.loadFile(indexFile);
 
     // https://github.com/electron/electron/issues/14978
