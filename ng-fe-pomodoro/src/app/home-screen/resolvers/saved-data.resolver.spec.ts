@@ -58,6 +58,7 @@ describe('SavedDataResolver', () => {
         });
 
         it('should return false if saved data was NOT gotten successfully', (done) => {
+            jest.spyOn(window.console, 'log').mockImplementation(() => {});
             jest.spyOn(storageService, 'getData').mockReturnValue(
                 throwError(Error('Some error'))
             );

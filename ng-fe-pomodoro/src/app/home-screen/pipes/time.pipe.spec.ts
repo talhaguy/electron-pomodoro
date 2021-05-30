@@ -6,7 +6,7 @@ describe('TimePipe', () => {
         expect(pipe).toBeTruthy();
     });
 
-    fit('should format milliseconds to digital clock time', () => {
+    it('should format milliseconds to digital clock time', () => {
         const pipe = new TimePipe();
 
         let result = pipe.transform(5000);
