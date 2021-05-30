@@ -1,6 +1,6 @@
 # NgFePomodoro
 
-This is the front end of the app.
+This is the front end package of the app.
 
 ## Development server
 
