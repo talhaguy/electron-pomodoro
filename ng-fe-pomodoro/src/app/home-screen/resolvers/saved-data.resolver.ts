@@ -24,10 +24,7 @@ export class SavedDataResolver implements Resolve<boolean> {
      *  Returns true if saved data was gotten successfully
      *  and returns false if not.
      */
-    resolve(
-        route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot
-    ): Observable<boolean> {
+    resolve(): Observable<boolean> {
         return this.storageService.getData().pipe(
             tap((data) => {
                 this.timerStateService.setNumIntervalsCompleted(
