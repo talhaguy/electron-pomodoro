@@ -1,0 +1,16 @@
+{
+  "name": "e2e-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Muhammad Talha",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.0.1",
+    "mocha": "^8.4.0",
+    "spectron": "^14.0.0"
+  }
+}

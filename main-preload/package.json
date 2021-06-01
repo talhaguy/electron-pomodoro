@@ -1,12 +1,14 @@
 {
   "name": "ng-pomodoro",
+  "productName": "NG Pomodoro",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
     "start": "electron .",
     "build": "ttsc -b -v",
-    "clean": "ttsc -b --clean"
+    "clean": "ttsc -b --clean",
+    "distribute": "electron-packager . --overwrite && node post-distribute.js"
   },
   "author": "Muhammad Talha",
   "license": "ISC",
@@ -14,6 +16,7 @@
     "@types/electron": "^1.6.10",
     "@types/node": "^15.6.0",
     "electron": "^12.0.6",
+    "electron-packager": "^15.2.0",
     "ttypescript": "^1.5.12",
     "typescript": "^4.2.4",
     "typescript-transform-paths": "^2.2.4"
