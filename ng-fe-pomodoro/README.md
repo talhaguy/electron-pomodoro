@@ -7,10 +7,6 @@ This is the front end package of the app.
 -   Angular
 -   TypeScript
 -   Jest
-<!--
-TODO: Uncomment when e2e testing is added
--   Cypress
-    -->
 
 ## Development server
 
@@ -28,12 +24,9 @@ Run `npm run test` to execute the unit tests.
 
 Run `npm run coverage` to run tests and generate coverage.
 
-<!--
-TODO: uncomment after adding e2e testing
-## Running end-to-end tests
+## Build for e2e
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
--->
+Run `npm run build:e2e` to build for e2e tests.
 
 ## Running build stats analyzer
 
