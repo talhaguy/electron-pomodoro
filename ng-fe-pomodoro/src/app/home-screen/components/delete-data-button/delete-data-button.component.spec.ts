@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { WINDOW } from 'src/app/shared/injection-tokens/window.injection-token';
+import { Confirm } from 'src/app/shared/injection-tokens/confirm.injection-token';
 import { TimerStateService } from 'src/app/shared/services/timer-state.service';
 import { TimerStateServiceStub } from 'src/app/shared/services/timer-state.service.stub';
 
@@ -10,16 +10,14 @@ describe('DeleteDataButtonComponent', () => {
     let component: DeleteDataButtonComponent;
     let fixture: ComponentFixture<DeleteDataButtonComponent>;
     let timerStateService: TimerStateService;
-    const mockWindow = {
-        confirm: jest.fn(),
-    };
+    const confirm = jest.fn();
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             providers: [
                 {
-                    provide: WINDOW,
-                    useValue: mockWindow,
+                    provide: Confirm,
+                    useValue: confirm,
                 },
                 {
                     provide: TimerStateService,
@@ -55,12 +53,12 @@ describe('DeleteDataButtonComponent', () => {
         );
 
         // user does not give confirmation case
-        mockWindow.confirm.mockReturnValue(false);
+        confirm.mockReturnValue(false);
         deleteBtn.triggerEventHandler('click', {});
         expect(resetNumIntervalsCompletedSpy).not.toHaveBeenCalled();
 
         // user gives confirmation case
-        mockWindow.confirm.mockReturnValue(true);
+        confirm.mockReturnValue(true);
         deleteBtn.triggerEventHandler('click', {});
         expect(resetNumIntervalsCompletedSpy).toHaveBeenCalledTimes(1);
     });

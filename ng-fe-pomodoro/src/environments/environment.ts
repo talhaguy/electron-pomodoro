@@ -4,6 +4,7 @@
 
 export const environment = {
     production: false,
+    e2e: false,
     intervalDuration: {
         focus: 1000,
         shortBreak: 1000,

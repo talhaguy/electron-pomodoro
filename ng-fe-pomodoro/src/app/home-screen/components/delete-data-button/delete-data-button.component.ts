@@ -1,5 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { WINDOW } from 'src/app/shared/injection-tokens/window.injection-token';
+import {
+    Confirm,
+    WindowConfirm,
+} from 'src/app/shared/injection-tokens/confirm.injection-token';
 import { TimerStateService } from 'src/app/shared/services/timer-state.service';
 
 @Component({
@@ -9,12 +12,12 @@ import { TimerStateService } from 'src/app/shared/services/timer-state.service';
 })
 export class DeleteDataButtonComponent {
     constructor(
-        @Inject(WINDOW) private window: Window,
+        @Inject(Confirm) private confirm: WindowConfirm,
         private timerStateService: TimerStateService
     ) {}
 
     delete() {
-        const shouldDelete = this.window.confirm(
+        const shouldDelete = this.confirm(
             'Are you sure you want to delete the number of focus intervals completed?'
         );
 
