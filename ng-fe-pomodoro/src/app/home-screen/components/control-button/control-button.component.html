@@ -1,3 +1,8 @@
-<button [attr.aria-label]="label" (click)="onClick()" class="button">
+<button
+    [attr.aria-label]="label"
+    (click)="onClick()"
+    [attr.data-testid]="testId"
+    class="button"
+>
     <img class="icon" [attr.aria-label]="label + ' icon'" [src]="icon" />
 </button>

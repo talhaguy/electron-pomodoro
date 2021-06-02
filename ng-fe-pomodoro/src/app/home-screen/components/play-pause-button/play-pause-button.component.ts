@@ -19,6 +19,12 @@ export class PlayPauseButtonComponent implements OnInit, OnDestroy {
         return this.playState === PlayState.Playing ? 'Pause' : 'Play';
     }
 
+    public get testId() {
+        return this.playState === PlayState.Playing
+            ? 'pause-button'
+            : 'play-button';
+    }
+
     public get icon() {
         return this.playState === PlayState.Playing
             ? 'assets/pause_white_24dp.svg'

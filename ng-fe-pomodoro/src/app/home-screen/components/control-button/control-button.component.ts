@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ControlButtonComponent implements OnInit {
     @Input() label = '';
     @Input() icon = '';
+    @Input() testId = '';
     @Output() buttonClick = new EventEmitter<void>();
 
     constructor() {}
