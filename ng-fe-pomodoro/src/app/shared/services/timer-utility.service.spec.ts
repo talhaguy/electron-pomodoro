@@ -9,6 +9,7 @@ describe('TimerUtilityService', () => {
 
     const env: EnvMap = {
         production: false,
+        e2e: false,
         intervalDuration: {
             focus: 5000,
             shortBreak: 2000,

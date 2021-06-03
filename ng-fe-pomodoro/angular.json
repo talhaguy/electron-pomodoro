@@ -95,6 +95,9 @@
                     "configurations": {
                         "production": {
                             "browserTarget": "ng-fe-pomodoro:build:production"
+                        },
+                        "e2e": {
+                            "browserTarget": "ng-fe-pomodoro:build:e2e"
                         }
                     }
                 },

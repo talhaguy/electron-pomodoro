@@ -10,7 +10,7 @@
                 [elapsedTime]="data.elapsedTime"
                 [totalTime]="data.interval.totalIntervalTime"
             ></app-clock-time>
-            <div class="interval-label">
+            <div class="interval-label" data-testid="interval-label">
                 {{ data.interval.label | uppercase }}
             </div>
         </div>

@@ -44,10 +44,14 @@ export class TimerStateService {
     public skipInterval(): void {
         this.window?.clearInterval(this.intervalId);
         this.elapsedTime.next(0);
+        const previousIntervalsCompleted =
+            this.intervalsCompleted.value === 0
+                ? 0
+                : this.intervalsCompleted.value - 1;
         this.intervalType.next(
             this.timerUtilityService.getNextInterval(
                 this.intervalType.value,
-                this.intervalsCompleted.value
+                previousIntervalsCompleted
             )
         );
         this.playState.next(PlayState.Stopped);

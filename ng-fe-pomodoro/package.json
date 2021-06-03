@@ -4,6 +4,7 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
+        "start:e2e": "ng serve --configuration=e2e",
         "build": "ng build --prod",
         "build:e2e": "ng build --configuration=e2e",
         "build:stats": "ng build --prod --stats-json",

@@ -28,14 +28,52 @@ Cypress.Commands.add('getByDataTestId', (value) => {
     return cy.get(`[data-testid=${value}]`);
 });
 
+Cypress.Commands.add('focusInterval', () => {
+    // should start on focus interval
+    cy.getByDataTestId('interval-label').contains('focus', {
+        matchCase: false,
+    });
+
+    // click to start timer
+    cy.getByDataTestId('play-button').click();
+
+    // wait for 5 seconds (+0.5 seconds for buffer) for focus timer to end
+    return cy.wait(5500);
+});
+
+Cypress.Commands.add('shortBreakInterval', () => {
+    // should be on short break interval
+    cy.getByDataTestId('interval-label').contains('short break', {
+        matchCase: false,
+    });
+
+    // click to start timer
+    cy.getByDataTestId('play-button').click();
+
+    // wait for 1 second (+0.5 seconds for buffer) for short break timer to end
+    return cy.wait(1500);
+});
+
+Cypress.Commands.add('longBreakInterval', () => {
+    // should be on long break interval
+    cy.getByDataTestId('interval-label').contains('long break', {
+        matchCase: false,
+    });
+
+    // click to start timer
+    cy.getByDataTestId('play-button').click();
+
+    // wait for 3 seconds (+0.5 seconds for buffer) for long break timer to end
+    return cy.wait(3500);
+});
+
 /// <reference types="cypress" />
 
 declare namespace Cypress {
     interface Chainable {
-        /**
-         * Custom command to select DOM element by data-testid attribute.
-         * @example cy.dataTestId('greeting')
-         */
         getByDataTestId(value: string): Chainable<Element>;
+        focusInterval(): Chainable<Element>;
+        shortBreakInterval(): Chainable<Element>;
+        longBreakInterval(): Chainable<Element>;
     }
 }
