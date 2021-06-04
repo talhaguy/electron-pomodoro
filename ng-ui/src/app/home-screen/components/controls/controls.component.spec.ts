@@ -60,7 +60,7 @@ describe('ControlsComponent', () => {
         fixture.detectChanges();
         fixture.whenRenderingDone().then(() => {
             let restartBtn = fixture.debugElement.query(
-                By.css('[data-testid="restart-btn"]')
+                By.css('[data-testid="restart-btn-cont"]')
             );
             expect(restartBtn).not.toBeNull();
             done();
