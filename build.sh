@@ -10,7 +10,7 @@ cd ../ng-fe-pomodoro;
 npm run build;
 echo "...Done building ng-fe-pomodoro package";
 
-echo "Start building main-preload package...";
-cd ../main-preload;
+echo "Start building electron package...";
+cd ../electron;
 npm run build;
-echo "...Done building main-preload package";
+echo "...Done building electron package";

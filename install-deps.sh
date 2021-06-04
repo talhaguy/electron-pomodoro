@@ -10,10 +10,10 @@ cd ../ng-fe-pomodoro;
 npm install;
 echo "...Done installing dependencies for ng-fe-pomodoro package";
 
-echo "Start installing dependencies for main-preload package...";
-cd ../main-preload;
+echo "Start installing dependencies for electron package...";
+cd ../electron;
 npm install;
-echo "...Done installing dependencies for main-preload package";
+echo "...Done installing dependencies for electron package";
 
 echo "Start installing dependencies for e2e-ui package...";
 cd ../e2e-ui;

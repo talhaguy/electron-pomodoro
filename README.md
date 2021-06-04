@@ -23,7 +23,7 @@ The top level folders are packages. Each package contains its own `README.md` in
 
 1. Install all dependencies for each package: `sh install-deps.sh`
 1. Build the app: `sh build.sh`
-1. Run the app: `cd ./main-preload && npm run start`
+1. Run the app: `cd ./electron && npm run start`
 
 ## A Note on E2E
 

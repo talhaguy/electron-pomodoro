@@ -1,6 +1,6 @@
-# Main-Preload
+# Electron
 
-This is the main/preload Electron package of the app.
+This is the Electron package of the app.
 
 ## Tech
 
