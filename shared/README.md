@@ -1,6 +1,6 @@
 # Shared
 
-This is the package for shared code between packages.
+This is the package for shared code amongst the other packages.
 
 ## Tech
 

@@ -6,6 +6,7 @@ This is the front end package of the app.
 
 -   Angular
 -   TypeScript
+-   Sass
 -   Jest
 
 ## Development server
@@ -24,9 +25,9 @@ Run `npm run test` to execute the unit tests.
 
 Run `npm run coverage` to run tests and generate coverage.
 
-## Build for e2e
+## Build for E2E
 
-Run `npm run build:e2e` to build for e2e tests.
+Run `npm run build:e2e` to build for E2E tests.
 
 ## Running build stats analyzer
 
