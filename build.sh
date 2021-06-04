@@ -12,5 +12,5 @@ echo "...Done building ng-ui package";
 
 echo "Start building electron package...";
 cd ../electron;
-npm run build;
+npm run build:distribute;
 echo "...Done building electron package";

@@ -10,13 +10,13 @@ In the UI package, `ng-ui`, run the following command to build for e2e.
 npm run build:e2e
 ```
 
-Then in the electron package, `electron`, run the following command to build the application for distribution.
+Still in the UI package, `ng-ui`, start the server in e2e configuration.
 
 ```
-npm run distribute
+npm run start:e2e
 ```
 
-Finally, in this package, run the tests.
+Finally, in this package (`e2e-ui`), run the tests.
 
 ```
 npm run cypress:run

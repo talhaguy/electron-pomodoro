@@ -13,7 +13,7 @@ npm run build:e2e
 Then in the electron package, `electron`, run the following command to build the application for distribution.
 
 ```
-npm run distribute
+npm run build:distribute
 ```
 
 Finally, in this package, run the tests.
