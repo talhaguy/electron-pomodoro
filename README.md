@@ -1,4 +1,4 @@
-# NG Electron Pomodoro
+# Electron Pomodoro App
 
 This is the monorepo for the Pomodoro app.
 
