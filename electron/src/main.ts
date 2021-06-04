@@ -13,7 +13,7 @@ function createWindow() {
         __dirname,
         '..',
         '..',
-        '/ng-fe-pomodoro/dist/ng-fe-pomodoro/index.html'
+        '/ng-ui/dist/ng-ui/index.html'
     );
 
     // Comment out for production

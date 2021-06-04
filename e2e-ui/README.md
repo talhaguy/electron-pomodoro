@@ -1,10 +1,10 @@
 # e2e-ui
 
-This package houses e2e tests for the `ui` package. Note, it does not test the integration between the UI and Electron (the `e2e-electron` package does this).
+This package houses e2e tests for the `ng-ui` package. Note, it does not test the integration between the UI and Electron (the `e2e-electron` package does this).
 
 ## Run tests
 
-In the UI package, `ng-fe-pomodoro`, run the following command to build for e2e.
+In the UI package, `ng-ui`, run the following command to build for e2e.
 
 ```
 npm run build:e2e

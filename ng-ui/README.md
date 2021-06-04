@@ -1,4 +1,4 @@
-# NgFePomodoro
+# NG-UI
 
 This is the front end package of the app.
 

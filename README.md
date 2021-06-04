@@ -21,7 +21,7 @@ The top level folders are packages. Each package contains its own `README.md` in
 
 ## How to use the app
 
-1. Install all dependencies for each package: `sh install-deps.sh`
+1. Install all dependencies for each package. You amy use the convenience script `sh install-deps.sh`, or go into each package and run `npm install`.
 1. Build the app: `sh build.sh`
 1. Run the app: `cd ./electron && npm run start`
 

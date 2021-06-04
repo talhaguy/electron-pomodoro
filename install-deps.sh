@@ -5,10 +5,10 @@ cd ./shared;
 npm install;
 echo "...Done installing dependencies for shared package";
 
-echo "Start installing dependencies for ng-fe-pomodoro package...";
-cd ../ng-fe-pomodoro;
+echo "Start installing dependencies for ng-ui package...";
+cd ../ng-ui;
 npm install;
-echo "...Done installing dependencies for ng-fe-pomodoro package";
+echo "...Done installing dependencies for ng-ui package";
 
 echo "Start installing dependencies for electron package...";
 cd ../electron;

@@ -4,7 +4,7 @@ This package houses e2e tests for the Electron and UI integration, e.g. being ab
 
 ## Run tests
 
-In the UI package, `ng-fe-pomodoro`, run the following command to build for e2e.
+In the UI package, `ng-ui`, run the following command to build for e2e.
 
 ```
 npm run build:e2e

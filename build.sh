@@ -5,10 +5,10 @@ cd ./shared;
 npm run build;
 echo "...Done building shared package";
 
-echo "Start building ng-fe-pomodoro package...";
-cd ../ng-fe-pomodoro;
+echo "Start building ng-ui package...";
+cd ../ng-ui;
 npm run build;
-echo "...Done building ng-fe-pomodoro package";
+echo "...Done building ng-ui package";
 
 echo "Start building electron package...";
 cd ../electron;

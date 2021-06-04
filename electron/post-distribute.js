@@ -6,12 +6,13 @@ const PLATFORM_FOLDERS = {
     WINDOWS: 'NG Pomodoro-win32-x64',
 };
 
+// TODO: Make this work for other platforms as well
 mkdirSync(
     path.join(
         __dirname,
         PLATFORM_FOLDERS.WINDOWS,
         'resources',
-        'ng-fe-pomodoro'
+        'ng-ui'
     )
 );
 
@@ -19,13 +20,13 @@ const FE_DIST = path.join(
     __dirname,
     PLATFORM_FOLDERS.WINDOWS,
     'resources',
-    'ng-fe-pomodoro',
+    'ng-ui',
     'dist'
 );
 
 mkdirSync(FE_DIST);
 
-ncp(path.join(__dirname, '../ng-fe-pomodoro/dist'), FE_DIST, (err) => {
+ncp(path.join(__dirname, '../ng-ui/dist'), FE_DIST, (err) => {
     if (err) {
         console.log('there was an err', err);
         return;
